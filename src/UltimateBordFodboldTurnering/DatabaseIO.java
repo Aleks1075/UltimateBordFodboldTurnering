@@ -12,7 +12,7 @@ public class DatabaseIO implements IO{
         try {
             String cityQuery = "SELECT * FROM team WHERE name = ?";
             PreparedStatement query = c.prepareStatement(cityQuery);
-            query.setString(1, "Los Angeles");
+            query.setString(1, "Suns");
             ResultSet result = query.executeQuery();
 
             while (result.next()) {
@@ -58,7 +58,7 @@ public class DatabaseIO implements IO{
         try {
             String cityQuery = "SELECT * FROM player WHERE name LIKE ?";
             PreparedStatement query = c.prepareStatement(cityQuery);
-            query.setString(1, "%lek%");
+            query.setString(1, "%obia%");
             ResultSet result = query.executeQuery();
 
             while (result.next()) {
@@ -80,7 +80,7 @@ public class DatabaseIO implements IO{
         try {
             String cityQuery = "SELECT * FROM team WHERE name LIKE ?";
             PreparedStatement query = c.prepareStatement(cityQuery);
-            query.setString(1, "%ull%");
+            query.setString(1, "%lipper%");
             ResultSet result = query.executeQuery();
 
             while (result.next()) {
@@ -134,6 +134,22 @@ public class DatabaseIO implements IO{
             PreparedStatement query = c.prepareStatement(cityQuery);
             query.setInt(1, 42);
             query.setInt(2, 20);
+
+            int result = query.executeUpdate();
+
+            query.close();
+        }catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+    }
+
+    public void addPoints(Connection c) {
+        try {
+            String cityQuery = "UPDATE team SET points = ? WHERE id = ?";
+            PreparedStatement query = c.prepareStatement(cityQuery);
+            query.setInt(1, 42);
+            query.setInt(2, 5);
 
             int result = query.executeUpdate();
 

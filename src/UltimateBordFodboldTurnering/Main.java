@@ -25,6 +25,7 @@ public class Main {
             //w.addPlayer(c);
             //w.deletePlayer(c);
             //w.addExistingPlayerToTeam(c);
+            //w.addPoints(c);
         }catch (SQLException e) {
             e.printStackTrace();
         }
